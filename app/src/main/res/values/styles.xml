@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/app_main</item>
+        <item name="colorPrimaryDark">@color/app_main</item>
+        <item name="android:titleTextStyle">@style/myTitleTextStyle</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Theme.AppCompat.Light">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="myTitleTextStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!--DrawerArrow styles-->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/white</item>
+    </style>
+
+    <style name="ReadingStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/app_bg</item>
+        <item name="android:textColor">@color/content_text</item>
+    </style>
+
+    <style name="PreferenceTheme">
+        <item name="android:windowBackground">@color/app_bg</item>
+        <item name="android:background">@color/app_bg</item>
+    </style>
+
+</resources>

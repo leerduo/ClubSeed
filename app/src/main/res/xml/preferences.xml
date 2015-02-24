@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="应用控制">
+        <Preference
+            android:key="@string/pref_clear_cache"
+            android:title="清除缓存"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="关于我们">
+        <Preference
+            android:title="反馈问题"/>
+        <Preference
+            android:title="分享"/>
+        <Preference
+            android:title="作者"/>
+        </PreferenceCategory>
+
+
+</PreferenceScreen>

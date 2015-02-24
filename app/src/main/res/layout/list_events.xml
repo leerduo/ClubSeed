@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/imageViewThumbnail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        />
+
+    <TextView
+        android:id="@+id/textViewClubName"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageViewThumbnail"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@id/imageViewThumbnail"
+        android:layout_toLeftOf="@id/imageViewThumbnail"
+        android:layout_toRightOf="@+id/imageViewThumbnail"
+        android:layout_toEndOf="@+id/imageViewThumbnail"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/content_text"
+        android:ellipsize="end"
+        android:singleLine="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textViewPlace"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_toRightOf="@+id/imageViewThumbnail"
+        android:layout_toEndOf="@+id/imageViewThumbnail"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:drawableLeft="@drawable/ic_place_grey600_18dp"
+        android:drawableStart="@drawable/ic_place_grey600_18dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textViewTime"
+        android:layout_below="@+id/textViewPlace"
+        android:layout_toRightOf="@+id/imageViewThumbnail"
+        android:layout_toEndOf="@+id/imageViewThumbnail"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:drawableStart="@drawable/ic_access_time_grey600_18dp"
+        android:drawableLeft="@drawable/ic_access_time_grey600_18dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textViewSummary"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:layout_below="@+id/textViewTime"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textViewTime"
+        android:layout_alignStart="@+id/textViewTime"/>
+
+</RelativeLayout>
