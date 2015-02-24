@@ -8,38 +8,23 @@ import com.alibaba.fastjson.JSON;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.Objects;
 
 import cn.edu.ustc.appseed.clubseed.jsondata.ListPhp;
 
 /**
  * Created by Hengruo on 2015/2/7.
+ * This class contains some global variables and static methods.
  */
 public class AppUtils extends Activity{
-    public static final String WIFI_ONLY = "WIFI_ONLY";
-    public static final String AUTO_REFRESH = "AUTO_REFRESH";
-    public static final String READING_MODE = "READING_MODE";
-    public static final String SETTINGS = "SETTINGS";
     private static final String TAG = "JSON_FILE_ERROR";
     private static final int URLSPLIT = 32;
-    public static boolean isWifiOnly;
-    public static boolean isAutoRefresh;
-    public static boolean isReadingMode;
-    public static boolean isWifiConnected;
     public static Context sAppContext;
-    public static ListPhp sListPhp;
 
-    public static boolean saveCache(String filename, String content, Context sAppContext) {
+    public static boolean saveCache(String filename, String content) {
         filename = filename.substring(URLSPLIT);
         FileOutputStream fos = null;
         byte[] buff = content.getBytes();
@@ -56,7 +41,7 @@ public class AppUtils extends Activity{
         }
     }
 
-    public static <T> T loadFile(String filename, Class<T> clazz, Context sAppContext) {
+    public static <T> T loadFile(String filename, Class<T> clazz) {
         filename = filename.substring(URLSPLIT);
         File f = new File(sAppContext.getCacheDir().getPath() + filename);
         byte[] buff = new byte[(int)f.length()];
@@ -71,14 +56,18 @@ public class AppUtils extends Activity{
         }
     }
 
-    public static boolean existCache(String filename, Context sAppContext){
+    public static boolean existCache(String filename){
         filename = filename.substring(URLSPLIT);
         File file = new File(sAppContext.getCacheDir().getPath() + filename);
         Log.d("HR",file.exists()?filename+":EXIST":filename+":NOT EXIST");
         return file.exists();
     }
 
-    public static boolean clearCache(Context sAppContext){
+    /**
+     * Clear the cache directory.
+     * @return whether the cache directory is cleared.
+     */
+    public static boolean clearCache(){
         File[] files = sAppContext.getCacheDir().listFiles();
         for(File file : files){
             file.deleteOnExit();
@@ -86,6 +75,11 @@ public class AppUtils extends Activity{
         return true;
     }
 
+    /**
+     * fetch the json string from url
+     * @param url
+     * @return
+     */
     public static String getJSONString(String url){
         final OkHttpClient client = new OkHttpClient();
         try {

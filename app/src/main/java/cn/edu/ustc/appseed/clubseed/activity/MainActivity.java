@@ -111,11 +111,15 @@ public class MainActivity extends ActionBarActivity {
         // update the main content by replacing fragments
         Fragment fragment = mFragments[position];
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.drawerContainer, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
         drawerLayout.closeDrawer(drawerList);
-        switch (position){
-            case 0:toolbar.setTitle("ClubSeed");break;
-            case 1:toolbar.setTitle("My Star");break;
+        switch (position) {
+            case 0:
+                toolbar.setTitle("ClubSeed");
+                break;
+            case 1:
+                toolbar.setTitle("我的收藏");
+                break;
             case 2:
                 toolbar.setTitle("设置");
                 break;

@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.squareup.okhttp.OkHttpClient;
 
 import cn.edu.ustc.appseed.clubseed.R;
 import cn.edu.ustc.appseed.clubseed.jsondata.ViewActivityPhp;

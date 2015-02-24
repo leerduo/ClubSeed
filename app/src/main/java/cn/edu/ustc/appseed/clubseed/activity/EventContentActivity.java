@@ -1,9 +1,13 @@
 package cn.edu.ustc.appseed.clubseed.activity;
 
-import android.app.ActionBar;
+/*
+* Show the detail content of the event which you select.
+* Why to use a custom toolbar instead of the default toolbar in ActionBarActivity?
+* Because the custom toolbar is very convenient to edit it and good to unify the GUI.
+ */
+
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,19 +22,19 @@ public class EventContentActivity extends ActionBarActivity {
     private Toolbar toolbar;
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meta);
+        setContentView(R.layout.activity_event_content);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
         FragmentManager fm = getFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+        Fragment fragment = fm.findFragmentById(R.id.eventFragmentContainer);
 
-        if(fragment == null) {
+        if (fragment == null) {
             fragment = new EventContentFragment();
-            fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
+            fm.beginTransaction().add(R.id.eventFragmentContainer, fragment).commit();
         }
         String title = this.getIntent().getStringExtra(EventShowFragment.EXTRA_TITLE);
         setTitle(title);

@@ -70,6 +70,7 @@ public class EventShowFragment extends Fragment {
 
     private void startListView(ListPhp listPhp) {
         adapter = new EventListViewAdapter(getActivity(), listPhp);
+        //must keep order of "addHeader, setAdapter, setOnXxxListener"
         mListView.addHeaderView(mLinearLayout);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

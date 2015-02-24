@@ -1,8 +1,5 @@
 package cn.edu.ustc.appseed.clubseed.jsondata;
 
-import java.util.LinkedList;
-import java.util.Map;
-
 /**
  * Created by Hengruo on 2015/2/6.
  */
