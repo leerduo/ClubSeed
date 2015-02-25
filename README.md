@@ -12,3 +12,8 @@
 2. EventContentFragment 直接读取EventContentActivity的Intent，这个将来收藏界面不好移植，应该改成在ECA中读取ID信息，再发送给ECF
 3. 界面改的再好看些……
 4. 缓存功能加上
+
+### Tip ###
+获取json数据我全都用AppUtils.class里面的getJSONString方法获取，没用网络队列的方式……因为使用网络队列需要在onSuccess里加入回调函数，代码会变得好长而且不利于模块化=_=
+
+下拉加载更多的操作我是这么处理的：设置一个标志*boolFirstLoad*（其实应该叫*isFirstLoad*，我才发现），如果为true就调用startListView方法，然后设置为false；如果是false直接appendData
