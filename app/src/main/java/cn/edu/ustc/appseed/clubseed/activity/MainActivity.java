@@ -1,6 +1,5 @@
 package cn.edu.ustc.appseed.clubseed.activity;
 
-import android.service.textservice.SpellCheckerService;
 import android.app.FragmentManager;
 import android.app.Fragment;
 import android.content.res.Configuration;
@@ -10,7 +9,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,9 +17,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import cn.edu.ustc.appseed.clubseed.R;
-import cn.edu.ustc.appseed.clubseed.fragment.EventShowFragment;
-import cn.edu.ustc.appseed.clubseed.fragment.SettingsFragment;
-import cn.edu.ustc.appseed.clubseed.fragment.StarFragment;
 
 public class MainActivity extends ActionBarActivity {
 
