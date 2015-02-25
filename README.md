@@ -3,7 +3,7 @@
 ## 0.0.9 ##
 
 ### Bug ###
-1. 从其他fragment返回到EventShowFragment会导致ESF空白
+1. 从其他fragment返回到EventShowFragment会导致ESF空白**（已解决）**
 2. 现在的刷新功能就是安慰剂……不能重新加载
 
 ### 预期改进 ###
