@@ -21,6 +21,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <fragment
+                android:id="@+id/event_show_fragment"
+                class="cn.edu.ustc.appseed.clubseed.fragment.EventShowFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <fragment
+                android:id="@+id/star_fragment"
+                class="cn.edu.ustc.appseed.clubseed.fragment.StarFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <fragment
+                android:id="@+id/settings_fragment"
+                class="cn.edu.ustc.appseed.clubseed.fragment.SettingsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </FrameLayout>
 
         <!-- navigation drawer -->

@@ -1,13 +1,16 @@
 package cn.edu.ustc.appseed.clubseed.activity;
 
-import android.app.Fragment;
+import android.service.textservice.SpellCheckerService;
 import android.app.FragmentManager;
+import android.app.Fragment;
 import android.content.res.Configuration;
+import android.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,16 +31,13 @@ public class MainActivity extends ActionBarActivity {
     private ArrayAdapter<String> navigationDrawerAdapter;
     private String[] drawerListData = {"活动信息", "我的收藏", "设置"};
     private Toolbar toolbar;
-    private Fragment[] mFragments = new Fragment[3];
+    private Fragment[] fragments = new Fragment[3];
+    private int debug = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mFragments[0] = new EventShowFragment();
-        mFragments[1] = new StarFragment();
-        mFragments[2] = new SettingsFragment();
 
         drawerList = (ListView) findViewById(R.id.drawerList);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -47,7 +47,7 @@ public class MainActivity extends ActionBarActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(position);
+                selectFragment(position);
             }
         });
         if (toolbar != null) {
@@ -67,8 +67,15 @@ public class MainActivity extends ActionBarActivity {
             }
         };
         drawerLayout.setDrawerListener(drawerToggle);
-        if (savedInstanceState == null) {
-            selectItem(0);
+
+        FragmentManager fm = getFragmentManager();
+        fragments[0] = fm.findFragmentById(R.id.event_show_fragment);
+        fragments[1] = fm.findFragmentById(R.id.star_fragment);
+        fragments[2] = fm.findFragmentById(R.id.settings_fragment);
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.commit();
+        for (int i = 1; i < fragments.length; i++) {
+            transaction.hide(fragments[i]);
         }
     }
 
@@ -107,11 +114,24 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void selectItem(int position) {
+    private void showFragment(int fragmentIndex, boolean addToBackStack) {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        for (int i = 0; i < fragments.length; i++) {
+            if (i == fragmentIndex) {
+                transaction.show(fragments[i]);
+            } else {
+                transaction.hide(fragments[i]);
+            }
+        }
+        if (addToBackStack) {
+            transaction.addToBackStack(null);
+        }
+        transaction.commit();
+    }
+
+    private void selectFragment(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = mFragments[position];
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
         drawerLayout.closeDrawer(drawerList);
         switch (position) {
             case 0:
@@ -124,5 +144,6 @@ public class MainActivity extends ActionBarActivity {
                 toolbar.setTitle("设置");
                 break;
         }
+        showFragment(position, false);
     }
 }
