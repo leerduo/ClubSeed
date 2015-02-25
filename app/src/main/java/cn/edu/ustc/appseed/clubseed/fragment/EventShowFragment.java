@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,8 +54,9 @@ public class EventShowFragment extends Fragment {
             @Override
             public void onRefresh() {
                 Toast.makeText(getActivity(), "刷新中...", Toast.LENGTH_SHORT).show();
-                mSwipeRefreshLayout.postInvalidate();
-                mSwipeRefreshLayout.setRefreshing(false);
+                boolFirstLoad = true;
+                new ListViewLoadAsyncTask().execute(1);
+                new SliderAsyncTask().execute();
             }
         });
         new ListViewLoadAsyncTask().execute(1);
@@ -142,6 +144,7 @@ public class EventShowFragment extends Fragment {
             String jsonString = null;
             String url = "http://clubseed.sinaapp.com/api/list.php?format=json2&perpage=10&page=" + params[0];
             jsonString = AppUtils.getJSONString(url);
+            Log.d("HR",jsonString);
             if (jsonString == null) {
                 return null;
             } else {
@@ -157,7 +160,7 @@ public class EventShowFragment extends Fragment {
                 boolFirstLoad = false;
                 mListPhp = listPhp;
                 startListView(mListPhp);
-            } else if (listPhp.getData() == null) {
+            } else if (listPhp.getData().isEmpty()) {
                 Toast.makeText(getActivity(), "没有更多活动了", Toast.LENGTH_SHORT).show();
             } else {
                 mListPhp.appendData(listPhp.getData());
