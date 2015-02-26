@@ -46,4 +46,9 @@ public class ListPhp {
     public void appendData(LinkedList<ListPhpDetail> data) {
         this.data.addAll(data);
     }
+
+    public void resetData(LinkedList<ListPhpDetail> data){
+        this.data.clear();
+        this.data = data;
+    }
 }

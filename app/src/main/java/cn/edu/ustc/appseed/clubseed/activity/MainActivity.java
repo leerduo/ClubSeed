@@ -13,20 +13,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import cn.edu.ustc.appseed.clubseed.R;
+import cn.edu.ustc.appseed.clubseed.adapter.DrawerListViewAdapter;
 
 public class MainActivity extends ActionBarActivity {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ListView drawerList;
-    private ArrayAdapter<String> navigationDrawerAdapter;
-    private String[] drawerListData = {"活动信息", "我的收藏", "设置"};
+    private DrawerListViewAdapter navigationDrawerAdapter;
+    private String[] drawerListData = {"活动信息","设置"};
     private Toolbar toolbar;
-    private Fragment[] fragments = new Fragment[3];
+    private Fragment[] fragments = new Fragment[2];
     private int debug = 0;
 
     @Override
@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity {
         drawerList = (ListView) findViewById(R.id.drawerList);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        navigationDrawerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, drawerListData);
+        navigationDrawerAdapter = new DrawerListViewAdapter(this,drawerListData);
         drawerList.setAdapter(navigationDrawerAdapter);
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,9 +64,8 @@ public class MainActivity extends ActionBarActivity {
         drawerLayout.setDrawerListener(drawerToggle);
 
         FragmentManager fm = getFragmentManager();
-        fragments[0] = fm.findFragmentById(R.id.event_show_fragment);
-        fragments[1] = fm.findFragmentById(R.id.star_fragment);
-        fragments[2] = fm.findFragmentById(R.id.settings_fragment);
+        fragments[0] = fm.findFragmentById(R.id.notice_fragment);
+        fragments[1] = fm.findFragmentById(R.id.settings_fragment);
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.commit();
         for (int i = 1; i < fragments.length; i++) {
@@ -87,27 +86,27 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_search) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_search) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     private void showFragment(int fragmentIndex, boolean addToBackStack) {
         FragmentManager fm = getFragmentManager();
@@ -133,9 +132,6 @@ public class MainActivity extends ActionBarActivity {
                 toolbar.setTitle("ClubSeed");
                 break;
             case 1:
-                toolbar.setTitle("我的收藏");
-                break;
-            case 2:
                 toolbar.setTitle("设置");
                 break;
         }

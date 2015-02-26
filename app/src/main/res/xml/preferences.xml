@@ -6,14 +6,21 @@
         <Preference
             android:key="@string/pref_clear_cache"
             android:title="清除缓存"/>
+        <!--<CheckBoxPreference-->
+            <!--android:key="@string/pref_reading_mode"-->
+            <!--android:title="阅读模式"-->
+            <!--android:defaultValue="true"/>-->
     </PreferenceCategory>
     <PreferenceCategory
         android:title="关于我们">
         <Preference
+            android:key="@string/pref_feedback"
             android:title="反馈问题"/>
         <Preference
+            android:key="@string/pref_share"
             android:title="分享"/>
         <Preference
+            android:key="@string/pref_author"
             android:title="作者"/>
         </PreferenceCategory>
 

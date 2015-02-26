@@ -27,7 +27,7 @@ public class EventContentFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ID = getActivity().getIntent().getIntExtra(EventShowFragment.EXTRA_ACTIVITY_ID, 0);
+        ID = getActivity().getIntent().getIntExtra(NoticeFragment.EXTRA_ACTIVITY_ID, 0);
     }
 
     @Override

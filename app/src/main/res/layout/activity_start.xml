@@ -14,9 +14,21 @@
         android:gravity="center_horizontal"
         android:text="ClubSeed"
         android:textColor="@color/white"
-        android:textSize="140px"
+        android:textSize="48sp"
         android:layout_marginTop="143dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Copyright © 2015 APPSeed"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginBottom="65dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
