@@ -42,15 +42,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8020aaf-0090-490e-918e-766a301f017a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/utils/AppUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/utils/AppUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/activity/AuthorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/activity/AuthorActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/activity/EventContentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/activity/EventContentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/activity/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/fragment/SettingsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/fragment/SettingsFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/activity/StartActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/cn/edu/ustc/appseed/clubseed/activity/StartActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_author.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_author.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ClubSeed.iws" />
@@ -93,8 +85,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0190736" vertical-offset="0" max-vertical-offset="850">
-              <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.41689372" vertical-offset="0" max-vertical-offset="850">
+              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -1815,7 +1807,11 @@
       <created>1425106530356</created>
       <updated>1425106530356</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="0.999">
+      <created>1425110390533</created>
+      <updated>1425110390533</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1921,7 +1917,8 @@
     </option>
     <MESSAGE value="Rejected commit: Default" />
     <MESSAGE value="Delete AA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete AA" />
+    <MESSAGE value="0.999" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.999" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2411,8 +2408,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0190736" vertical-offset="0" max-vertical-offset="850">
-          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.41689372" vertical-offset="0" max-vertical-offset="850">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding />
         </state>
       </provider>
