@@ -8,6 +8,7 @@ import android.preference.PreferenceFragment;
 import android.widget.Toast;
 
 import cn.edu.ustc.appseed.clubseed.R;
+import cn.edu.ustc.appseed.clubseed.activity.AuthorActivity;
 import cn.edu.ustc.appseed.clubseed.utils.AppUtils;
 
 /**
@@ -40,7 +41,8 @@ public class SettingsFragment extends PreferenceFragment {
         prefAuthor.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-
+                Intent i = new Intent(getActivity(), AuthorActivity.class);
+                startActivity(i);
                 return false;
             }
         });

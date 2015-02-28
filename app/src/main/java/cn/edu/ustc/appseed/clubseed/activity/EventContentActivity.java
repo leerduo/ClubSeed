@@ -11,8 +11,6 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import cn.edu.ustc.appseed.clubseed.R;
 import cn.edu.ustc.appseed.clubseed.fragment.EventContentFragment;

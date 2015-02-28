@@ -17,4 +17,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_author">AuthorActivity</string>
+    <string name="officialWebsite">官方网站:clubseed.sinaapp.com</string>
+    <string name="joinUs">加入我们:ustcappseed@163.com</string>
+    <string name="QQnumber">QQ群:392615752</string>
 </resources>
