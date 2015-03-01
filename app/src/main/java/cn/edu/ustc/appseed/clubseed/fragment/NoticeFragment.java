@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,6 @@ import com.alibaba.fastjson.JSON;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.squareup.okhttp.OkHttpClient;
 
 import cn.edu.ustc.appseed.clubseed.R;
 import cn.edu.ustc.appseed.clubseed.activity.EventContentActivity;
@@ -49,7 +47,7 @@ public class NoticeFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_event_show, container, false);
+        View v = inflater.inflate(R.layout.fragment_notice, container, false);
         mLayoutInflater = LayoutInflater.from(getActivity());
         mLinearLayout = (LinearLayout) mLayoutInflater.inflate(R.layout.header_list_events, null);
         mSwipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipeContainer);

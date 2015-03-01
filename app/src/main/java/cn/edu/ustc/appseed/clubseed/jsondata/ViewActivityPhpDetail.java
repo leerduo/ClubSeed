@@ -5,6 +5,7 @@ package cn.edu.ustc.appseed.clubseed.jsondata;
  */
 public class ViewActivityPhpDetail {
     String ID;
+    String PhotoURL;
     String title;
     String clubid;
     String clubname;
@@ -16,11 +17,9 @@ public class ViewActivityPhpDetail {
     String createtime;
     String activitytime;
 
-    public ViewActivityPhpDetail() {
-    }
-
-    public ViewActivityPhpDetail(String ID, String title, String clubid, String clubname, String summary, String content, String place, String recommend, String tag, String createtime, String activitytime) {
+    public ViewActivityPhpDetail(String ID, String photoURL, String title, String clubid, String clubname, String summary, String content, String place, String recommend, String tag, String createtime, String activitytime) {
         this.ID = ID;
+        PhotoURL = photoURL;
         this.title = title;
         this.clubid = clubid;
         this.clubname = clubname;
@@ -31,6 +30,9 @@ public class ViewActivityPhpDetail {
         this.tag = tag;
         this.createtime = createtime;
         this.activitytime = activitytime;
+    }
+
+    public ViewActivityPhpDetail() {
     }
 
     public String getActivitytime() {
@@ -119,6 +121,14 @@ public class ViewActivityPhpDetail {
 
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    public String getPhotoURL() {
+        return PhotoURL;
+    }
+
+    public void setPhotoURL(String photoURL) {
+        PhotoURL = photoURL;
     }
 
 }
