@@ -26,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingLeft="32dp"
         android:text="@string/officialWebsite"
         android:id="@+id/textView"
         android:layout_centerVertical="true"
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/joinUs"
+        android:paddingLeft="32dp"
         android:id="@+id/textView2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -49,6 +51,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="32dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/QQnumber"
         android:id="@+id/textView3"

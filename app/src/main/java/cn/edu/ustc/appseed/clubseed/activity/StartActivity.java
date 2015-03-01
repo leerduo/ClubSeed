@@ -32,7 +32,6 @@ public class StartActivity extends Activity {
         AppUtils.isReadingMode = AppUtils.sSharedPreferences.getBoolean(getString(R.string.pref_reading_mode), true);
         AppUtils.NullListPhp = setNullListPhp();
         String phoneInfo = "Product: " + android.os.Build.PRODUCT;
-        phoneInfo += ", TAGS: " + android.os.Build.TAGS;
         phoneInfo += ", VERSION_CODES.BASE: " + android.os.Build.VERSION_CODES.BASE;
         phoneInfo += ", MODEL: " + android.os.Build.MODEL;
         phoneInfo += ", SDK: " + android.os.Build.VERSION.SDK;

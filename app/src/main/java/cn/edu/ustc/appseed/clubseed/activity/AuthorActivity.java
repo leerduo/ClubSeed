@@ -19,6 +19,7 @@ public class AuthorActivity extends ActionBarActivity {
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle("关于ClubSeed");
         }
+        setTitle("APPseed");
     }
 
 
