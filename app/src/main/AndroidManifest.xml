@@ -31,7 +31,8 @@
         </activity>
         <activity
             android:name=".activity.AuthorActivity"
-            android:label="@string/title_activity_author" >
+            android:label="@string/title_activity_author"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

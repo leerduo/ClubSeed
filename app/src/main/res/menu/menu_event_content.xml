@@ -2,9 +2,14 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="cn.edu.ustc.appseed.clubseed.activity.EventContentActivity">
-    <item android:id="@+id/action_star"
-          android:title="@string/action_star"
-          android:icon="@drawable/ic_action_star"
-          android:orderInCategory="100"
-          app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_star"
+        android:orderInCategory="100"
+        android:title="@string/action_star"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_calendar"
+        android:orderInCategory="100"
+        android:title="@string/action_calendar"
+        app:showAsAction="never"/>
 </menu>

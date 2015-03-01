@@ -9,27 +9,27 @@
 
     <ImageView
         android:id="@+id/imageViewThumbnail"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="16dp"
         />
 
     <TextView
         android:id="@+id/textViewClubName"
         android:layout_width="80dp"
         android:layout_height="25dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageViewThumbnail"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/content_text"
         android:ellipsize="end"
         android:singleLine="true"
         android:gravity="center_horizontal"
-        />
+        android:layout_below="@+id/imageViewThumbnail"
+        android:layout_marginTop="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -43,6 +43,7 @@
         android:layout_toRightOf="@+id/imageViewThumbnail"
         android:layout_toEndOf="@+id/imageViewThumbnail"
         android:textAppearance="?android:attr/textAppearanceMedium"
+
         android:textColor="@color/content_text"
         android:ellipsize="end"
         android:singleLine="true"/>
@@ -57,6 +58,7 @@
         android:layout_toEndOf="@+id/imageViewThumbnail"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="2dp"
         android:drawableLeft="@drawable/ic_place_grey600_18dp"
         android:drawableStart="@drawable/ic_place_grey600_18dp"/>
 
@@ -70,6 +72,7 @@
         android:layout_toEndOf="@+id/imageViewThumbnail"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="2dp"
         android:drawableStart="@drawable/ic_access_time_grey600_18dp"
         android:drawableLeft="@drawable/ic_access_time_grey600_18dp"/>
 
@@ -84,6 +87,7 @@
         android:maxLines="3"
         android:layout_below="@+id/textViewTime"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="2dp"
         android:layout_alignLeft="@+id/textViewTime"
         android:layout_alignStart="@+id/textViewTime"/>
 

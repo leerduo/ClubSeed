@@ -17,9 +17,8 @@ public class AuthorActivity extends ActionBarActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if(toolbar != null) {
             setSupportActionBar(toolbar);
-            getSupportActionBar().setTitle("关于ClubSeed");
         }
-        setTitle("APPseed");
+        setTitle("APPSeed");
     }
 
 
