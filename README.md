@@ -6,6 +6,7 @@
 1. 活动详情（ContentFragment）可以查看活动图片了
 2. 删除了fragment_event_show.xml...
 3. 由于网络方法现在改成throw exception了，所以后面的异常处理改了点
+4. 修改作者信息界面，稍做美化
 
 ## 0.0.999 ##
 ### 改动 ###
