@@ -1,7 +1,8 @@
 package cn.edu.ustc.appseed.clubseed.activity;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -13,6 +14,11 @@ public class AuthorActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_author);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if(toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setTitle("关于ClubSeed");
+        }
     }
 
 

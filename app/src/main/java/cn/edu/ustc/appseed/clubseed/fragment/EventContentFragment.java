@@ -1,19 +1,18 @@
 package cn.edu.ustc.appseed.clubseed.fragment;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-
-import java.net.URL;
 
 import cn.edu.ustc.appseed.clubseed.R;
 import cn.edu.ustc.appseed.clubseed.jsondata.ViewActivityPhp;
@@ -21,9 +20,8 @@ import cn.edu.ustc.appseed.clubseed.utils.AppUtils;
 
 public class EventContentFragment extends Fragment {
     TextView mTextView;
+    ImageView mImageView;
     int ID;
-    String title;
-    Drawable mDrawable;
 
     public EventContentFragment() {
         // Required empty public constructor
@@ -41,6 +39,7 @@ public class EventContentFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_event_content, container, false);
         mTextView = (TextView) v.findViewById(R.id.textViewEventContent);
+        mImageView = (ImageView) v.findViewById(R.id.imgContent);
         if (ID == 0) {
             Toast.makeText(getActivity(), "未知的网络错误！", Toast.LENGTH_SHORT).show();
         } else {
@@ -49,61 +48,73 @@ public class EventContentFragment extends Fragment {
         return v;
     }
 
-    private class ContentAsyncTask extends AsyncTask<Integer, Void, String> {
+    private class ContentAsyncTask extends AsyncTask<Integer, Void, Content> {
         @Override
-        protected String doInBackground(Integer... params) {
+        protected Content doInBackground(Integer... params) {
             String url = "http://clubseed.sinaapp.com/api/viewactivity.php?format=json2&ID=" + params[0];
-            StringBuilder html = new StringBuilder("<img src=\"");
             ViewActivityPhp mViewActivityPhp = null;
-            String jsonString = AppUtils.getJSONString(url);
-            if (jsonString == null) {
-                Toast.makeText(getActivity(), "未知的网络错误", Toast.LENGTH_SHORT).show();
-                return "";
-            } else {
+            Content content = new Content();
+            try {
+                String jsonString = AppUtils.getJSONString(url);
                 mViewActivityPhp =
                         JSON.parseObject(
                                 jsonString,
                                 ViewActivityPhp.class);
-                html.append(mViewActivityPhp.getData().getPhotoURL()).append("\"/></br>").append(mViewActivityPhp.getData().getContent());
-                return html.toString();
+                content.setText( mViewActivityPhp.getData().getContent());
+            } catch (Exception e) {
+                e.printStackTrace();
+                content.setText(null);
             }
-
+            try{
+                Bitmap bitmap = AppUtils.getBitmapFromURL( mViewActivityPhp.getData().getPhotoURL());
+                content.setBitmap(bitmap);
+            }catch (Exception e){
+                e.printStackTrace();
+                content.setBitmap(null);
+            }
+            return content;
         }
 
         @Override
-        protected void onPostExecute(String html) {
-            Html.ImageGetter imageGetter = new Html.ImageGetter() {
-                @Override
-                public Drawable getDrawable(String source) {
-                    new ImageGetterAsyncTask().execute(source);
-                    if(mDrawable==null){
-                        return getActivity().getResources().getDrawable(R.drawable.empty_slider);
-                    }
-                    return mDrawable;
-                }
-            };
-            mTextView.setText(Html.fromHtml(html, imageGetter, null));
+        protected void onPostExecute(Content content) {
+            String text = content.getText();
+            Bitmap bitmap = content.getBitmap();
+            if (text == null) {
+                Toast.makeText(getActivity(), "未知的网络错误", Toast.LENGTH_SHORT).show();
+            } else
+                mTextView.setText(text);
+            if(bitmap == null){
+                ;
+            }else
+                mImageView.setImageBitmap(bitmap);
         }
     }
 
-    private class ImageGetterAsyncTask extends AsyncTask<String, Void, Drawable>{
+    private class Content{
+        Bitmap bitmap;
+        String text;
 
-        @Override
-        protected Drawable doInBackground(String... params) {
-            Drawable drawable = null;
-            URL Url;
-            try {
-                Url = new URL(params[0]);
-                drawable = Drawable.createFromStream(Url.openStream(), "");
-                return drawable;
-            } catch (Exception e) {
-                return null;
-            }
+        private Content(){};
+
+        private Content(Bitmap bitmap, String text) {
+            this.bitmap = bitmap;
+            this.text = text;
         }
 
-        @Override
-        protected void onPostExecute(Drawable result) {
-                mDrawable = result;
+        public Bitmap getBitmap() {
+            return bitmap;
+        }
+
+        public void setBitmap(Bitmap bitmap) {
+            this.bitmap = bitmap;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
         }
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.alibaba.fastjson.JSON;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.squareup.okhttp.OkHttpClient;
 
 import cn.edu.ustc.appseed.clubseed.R;
 import cn.edu.ustc.appseed.clubseed.activity.EventContentActivity;
@@ -149,11 +151,12 @@ public class NoticeFragment extends Fragment {
         protected ListPhp doInBackground(Integer... params) {
             String jsonString = null;
             String url = "http://clubseed.sinaapp.com/api/list.php?format=json2&perpage=10&page=" + params[0];
-            jsonString = AppUtils.getJSONString(url);
-            if (jsonString == null) {
-                return null;
-            } else {
+            try {
+                jsonString = AppUtils.getJSONString(url);
                 return (ListPhp) JSON.parseObject(jsonString, ListPhp.class);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
 
@@ -195,11 +198,12 @@ public class NoticeFragment extends Fragment {
         protected GetPhp doInBackground(Void... params) {
             String jsonString = null;
             String url = "http://clubseed.sinaapp.com/api/get.php?format=json2";
-            jsonString = AppUtils.getJSONString(url);
-            if (jsonString == null) {
-                return null;
-            } else {
+            try {
+                jsonString = AppUtils.getJSONString(url);
                 return (GetPhp) JSON.parseObject(jsonString, GetPhp.class);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
 

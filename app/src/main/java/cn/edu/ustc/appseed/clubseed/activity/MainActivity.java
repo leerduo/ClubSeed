@@ -1,16 +1,14 @@
 package cn.edu.ustc.appseed.clubseed.activity;
 
-import android.app.FragmentManager;
 import android.app.Fragment;
-import android.content.res.Configuration;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -24,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
     private ActionBarDrawerToggle drawerToggle;
     private ListView drawerList;
     private DrawerListViewAdapter navigationDrawerAdapter;
-    private String[] drawerListData = {"活动信息","设置"};
+    private String[] drawerListData = {"活动信息", "设置"};
     private Toolbar toolbar;
     private Fragment[] fragments = new Fragment[2];
     private int debug = 0;
@@ -37,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
         drawerList = (ListView) findViewById(R.id.drawerList);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        navigationDrawerAdapter = new DrawerListViewAdapter(this,drawerListData);
+        navigationDrawerAdapter = new DrawerListViewAdapter(this, drawerListData);
         drawerList.setAdapter(navigationDrawerAdapter);
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
+import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 
@@ -30,6 +32,7 @@ public class AppUtils extends Activity{
     public static ListPhp NullListPhp;
     public static String version = "0.0.9";
     public static String phoneInfo;
+    final static OkHttpClient client = new OkHttpClient();
 
     public static String changeFilename(String filename){
         return filename.replace('/', '|');
@@ -92,32 +95,22 @@ public class AppUtils extends Activity{
      * @param url
      * @return
      */
-    public static String getJSONString(String url){
-        final OkHttpClient client = new OkHttpClient();
-        try {
+    public static String getJSONString(String url) throws IOException {
+        Cache cache = new Cache(Environment.getExternalStorageDirectory(),10 * 1024 * 1024);
+        client.setCache(cache);
             Request listRequest = new Request.Builder()
                     .url(url)
                     .build();
             String jsonString = client.newCall(listRequest).execute().body().string();
             return jsonString;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
-    public static Bitmap getBitmapFromURL(String url){
-        final OkHttpClient client = new OkHttpClient();
-        try {
+    public static Bitmap getBitmapFromURL(String url) throws Exception{
             Request listRequest = new Request.Builder()
                     .url(url)
                     .build();
             byte[] bytes = client.newCall(listRequest).execute().body().bytes();
             Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
             return bitmap;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }

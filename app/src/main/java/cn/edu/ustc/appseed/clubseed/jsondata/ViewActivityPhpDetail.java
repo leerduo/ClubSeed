@@ -17,6 +17,9 @@ public class ViewActivityPhpDetail {
     String createtime;
     String activitytime;
 
+    public ViewActivityPhpDetail() {
+    }
+
     public ViewActivityPhpDetail(String ID, String photoURL, String title, String clubid, String clubname, String summary, String content, String place, String recommend, String tag, String createtime, String activitytime) {
         this.ID = ID;
         PhotoURL = photoURL;
@@ -30,9 +33,6 @@ public class ViewActivityPhpDetail {
         this.tag = tag;
         this.createtime = createtime;
         this.activitytime = activitytime;
-    }
-
-    public ViewActivityPhpDetail() {
     }
 
     public String getActivitytime() {
@@ -130,5 +130,4 @@ public class ViewActivityPhpDetail {
     public void setPhotoURL(String photoURL) {
         PhotoURL = photoURL;
     }
-
 }
