@@ -22,9 +22,9 @@ public class MainActivity extends ActionBarActivity {
     private ActionBarDrawerToggle drawerToggle;
     private ListView drawerList;
     private DrawerListViewAdapter navigationDrawerAdapter;
-    private String[] drawerListData = {"活动信息", "设置"};
+    private String[] drawerListData = {"活动信息","我的收藏", "设置"};
     private Toolbar toolbar;
-    private Fragment[] fragments = new Fragment[2];
+    private Fragment[] fragments = new Fragment[3];
     private int debug = 0;
 
     @Override
@@ -63,7 +63,8 @@ public class MainActivity extends ActionBarActivity {
 
         FragmentManager fm = getFragmentManager();
         fragments[0] = fm.findFragmentById(R.id.notice_fragment);
-        fragments[1] = fm.findFragmentById(R.id.settings_fragment);
+        fragments[1] = fm.findFragmentById(R.id.star_fragment);
+        fragments[2] = fm.findFragmentById(R.id.settings_fragment);
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.commit();
         for (int i = 1; i < fragments.length; i++) {
@@ -130,6 +131,9 @@ public class MainActivity extends ActionBarActivity {
                 toolbar.setTitle("ClubSeed");
                 break;
             case 1:
+                toolbar.setTitle("我的收藏");
+                break;
+            case 2:
                 toolbar.setTitle("设置");
                 break;
         }

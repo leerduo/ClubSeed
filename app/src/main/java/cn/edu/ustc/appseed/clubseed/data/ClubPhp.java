@@ -1,16 +1,16 @@
-package cn.edu.ustc.appseed.clubseed.jsondata;
+package cn.edu.ustc.appseed.clubseed.data;
 
 import java.util.LinkedList;
 
-public class GetPhp {
+/**
+ * Created by Hengruo on 2015/3/5.
+ */
+public class ClubPhp {
     private int error;
     private String errormessage;
-    private LinkedList<GetPhpDetail> data;
+    private LinkedList<Club> data;
 
-    public GetPhp() {
-    }
-
-    public GetPhp(int error, String errormessage, LinkedList<GetPhpDetail> data) {
+    public ClubPhp(int error, String errormessage, LinkedList<Club> data) {
         this.error = error;
         this.errormessage = errormessage;
         this.data = data;
@@ -32,11 +32,11 @@ public class GetPhp {
         this.errormessage = errormessage;
     }
 
-    public LinkedList<GetPhpDetail> getData() {
+    public LinkedList<Club> getData() {
         return data;
     }
 
-    public void setData(LinkedList<GetPhpDetail> data) {
+    public void setData(LinkedList<Club> data) {
         this.data = data;
     }
 }

@@ -1,34 +1,49 @@
-package cn.edu.ustc.appseed.clubseed.jsondata;
+package cn.edu.ustc.appseed.clubseed.data;
+
+import android.graphics.Bitmap;
 
 /**
  * Created by gdshen on 2/6/15.
+ *
+ * Changed by Hengruo on 3/3/15
+ * Change the list.php api result to the universal event infomation.
  */
-public class ListPhpDetail {
+public class Event {
     private String ID;
+    private String PhotoURL;
     private String title;
     private String clubid;
     private String clubname;
     private String summary;
+    private String content;
     private String place;
     private String recommend;
     private String tag;
     private String createtime;
     private String activitytime;
+    private String AID;
+    private String URL;
+    private Bitmap bitmap;
 
-    public ListPhpDetail() {
+    public Event() {
     }
 
-    public ListPhpDetail(String id, String title, String clubid, String clubname, String summary, String place, String recommend, String tag, String createtime, String activitytime) {
-        ID = id;
+    public Event(String ID, String photoURL, String title, String clubid, String clubname, String summary, String content, String place, String recommend, String tag, String createtime, String activitytime, String AID, String URL, Bitmap bitmap) {
+        this.ID = ID;
+        PhotoURL = photoURL;
         this.title = title;
         this.clubid = clubid;
         this.clubname = clubname;
         this.summary = summary;
+        this.content = content;
         this.place = place;
         this.recommend = recommend;
         this.tag = tag;
         this.createtime = createtime;
         this.activitytime = activitytime;
+        this.AID = AID;
+        this.URL = URL;
+        this.bitmap = bitmap;
     }
 
     public String getID() {
@@ -111,12 +126,52 @@ public class ListPhpDetail {
         this.activitytime = activitytime;
     }
 
+    public String getPhotoURL() {
+        return PhotoURL;
+    }
+
+    public void setPhotoURL(String photoURL) {
+        PhotoURL = photoURL;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String getTime() {
         return activitytime.substring(0, 4) + "年" +
                 activitytime.substring(4, 6) + "月" +
                 activitytime.substring(6, 8) + "日" +
                 activitytime.substring(8, 10) + ":" +
                 activitytime.substring(10, 12);
+    }
+
+    public String getAID() {
+        return AID;
+    }
+
+    public void setAID(String AID) {
+        this.AID = AID;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 }
 

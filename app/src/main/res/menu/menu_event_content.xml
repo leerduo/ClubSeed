@@ -3,13 +3,16 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="cn.edu.ustc.appseed.clubseed.activity.EventContentActivity">
     <item
-        android:id="@+id/action_star"
-        android:orderInCategory="100"
-        android:title="@string/action_star"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/action_calendar"
+        android:icon="@drawable/ic_notifications_black"
         android:orderInCategory="100"
         android:title="@string/action_calendar"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_star"
+        android:icon="@drawable/ic_star_outline_black"
+        android:orderInCategory="100"
+        android:title="@string/action_star"
+        app:showAsAction="always"/>
+
 </menu>

@@ -29,6 +29,7 @@ public class SettingsFragment extends PreferenceFragment {
         prefAuthor = findPreference(getString(R.string.pref_author));
         prefFeedback = findPreference(getString(R.string.pref_feedback));
         prefShare = findPreference(getString(R.string.pref_share));
+
 //        prefReadingMode = findPreference(getString(R.string.pref_reading_mode));
         prefClearCache.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override

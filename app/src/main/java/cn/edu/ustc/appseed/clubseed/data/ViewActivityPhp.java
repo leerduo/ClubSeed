@@ -1,12 +1,22 @@
-package cn.edu.ustc.appseed.clubseed.jsondata;
+package cn.edu.ustc.appseed.clubseed.data;
 
 /**
- * Created by Hengruo on 2015/2/6.
+ * Created by Hengruo on 2015/3/3.
  */
 public class ViewActivityPhp {
     private int error;
     private String errormessage;
-    private ViewActivityPhpDetail data;
+    private Event data;
+
+    public ViewActivityPhp(){
+
+    }
+
+    public ViewActivityPhp(int error, String errormessage, Event data) {
+        this.error = error;
+        this.errormessage = errormessage;
+        this.data = data;
+    }
 
     public int getError() {
         return error;
@@ -24,19 +34,11 @@ public class ViewActivityPhp {
         this.errormessage = errormessage;
     }
 
-    public ViewActivityPhpDetail getData() {
+    public Event getData() {
         return data;
     }
 
-    public void setData(ViewActivityPhpDetail data) {
-        this.data = data;
-    }
-
-    public ViewActivityPhp(){}
-
-    public ViewActivityPhp(int error, String errormessage, ViewActivityPhpDetail data){
-        this.error = error;
-        this.errormessage = errormessage;
+    public void setData(Event data) {
         this.data = data;
     }
 }

@@ -21,4 +21,6 @@
     <string name="officialWebsite">官方网站:clubseed.sinaapp.com</string>
     <string name="joinUs">加入我们:ustcappseed@163.com</string>
     <string name="QQnumber">QQ群:392615752</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

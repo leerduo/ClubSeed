@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,14 +18,13 @@ import com.alibaba.fastjson.JSON;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.squareup.okhttp.OkHttpClient;
 
 import cn.edu.ustc.appseed.clubseed.R;
 import cn.edu.ustc.appseed.clubseed.activity.EventContentActivity;
 import cn.edu.ustc.appseed.clubseed.adapter.EventListViewAdapter;
-import cn.edu.ustc.appseed.clubseed.jsondata.GetPhp;
-import cn.edu.ustc.appseed.clubseed.jsondata.ListPhp;
-import cn.edu.ustc.appseed.clubseed.jsondata.ListPhpDetail;
+import cn.edu.ustc.appseed.clubseed.data.ListPhp;
+import cn.edu.ustc.appseed.clubseed.data.GetPhp;
+import cn.edu.ustc.appseed.clubseed.data.Event;
 import cn.edu.ustc.appseed.clubseed.listener.EndlessScrollListener;
 import cn.edu.ustc.appseed.clubseed.utils.AppUtils;
 
@@ -122,10 +120,10 @@ public class NoticeFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ListPhpDetail listPhpDetail = (ListPhpDetail) parent.getItemAtPosition(position);
+                Event event = (Event) parent.getItemAtPosition(position);
                 Intent i = new Intent(getActivity(), EventContentActivity.class);
-                i.putExtra(EXTRA_ACTIVITY_ID, Integer.parseInt(listPhpDetail.getID()));
-                i.putExtra(EXTRA_TITLE, listPhpDetail.getTitle());
+                i.putExtra(EXTRA_ACTIVITY_ID, Integer.parseInt(event.getID()));
+                i.putExtra(EXTRA_TITLE, event.getTitle());
                 startActivity(i);
             }
         });
@@ -136,13 +134,15 @@ public class NoticeFragment extends Fragment {
                 new ListViewAsyncTask().execute(page);
             }
         });
+        mListView.setVisibility(View.VISIBLE);
         adapter.notifyDataSetChanged();
     }
 
     private void setEmptyListView() {
-        adapter = new EventListViewAdapter(getActivity(), AppUtils.NullListPhp);
+        adapter = new EventListViewAdapter(getActivity(), AppUtils.sNullListPhp);
         //must keep order of "addHeader, setAdapter, setOnXxxListener"
         mListView.setAdapter(adapter);
+        mListView.setVisibility(View.INVISIBLE);
         adapter.notifyDataSetChanged();
     }
 
@@ -230,4 +230,6 @@ public class NoticeFragment extends Fragment {
             }
         }
     }
+
+
 }
